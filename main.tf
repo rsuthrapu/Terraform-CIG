@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket         = "<your-bucket-name>"
     key            = "terraform-prod.tfstate"
-    region         = "<bucket-region>"
+    region         = "us-east-1"
     # Optional DynamoDB for state locking. See https://developer.hashicorp.com/terraform/language/settings/backends/s3 for details.
     # dynamodb_table = "terraform-state-lock-table"
     encrypt        = true
@@ -20,7 +20,7 @@ terraform {
 provider "snowflake" {
   username    = "<your_snowflake_username>"
   account     = "<your_snowflake_account_identifier>"
-  role        = "<your_snowflake_role>"
+  role        = "ACCOUNTADMIN"
   private_key = var.snowflake_private_key
 }
 
