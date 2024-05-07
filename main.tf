@@ -7,19 +7,19 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "<your-bucket-name>"
+    bucket         = "cig-prd-env-saas-gw-landing-zone-cm-01-bucket"
     key            = "terraform-prod.tfstate"
     region         = "us-east-1"
     # Optional DynamoDB for state locking. See https://developer.hashicorp.com/terraform/language/settings/backends/s3 for details.
     # dynamodb_table = "terraform-state-lock-table"
     encrypt        = true
-    role_arn       = "arn:aws:iam::<your-aws-account-no>:role/<terraform-s3-backend-access-role>"
+    role_arn       = "arn:aws:iam::129153805747:role/cig_glue_service"
   }
 }
 
 provider "snowflake" {
-  username    = "<your_snowflake_username>"
-  account     = "<your_snowflake_account_identifier>"
+  username    = "rsuthrapu@ciginsurance.com"
+  account     = "REA00670"
   role        = "ACCOUNTADMIN"
   private_key = var.snowflake_private_key
 }
